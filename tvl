@@ -1,0 +1,17 @@
+ else:
+            wallet["eth_total"] = 0
+            wallet["stables_total"] = 0
+            continue
+        wallet["eth_total"] = wallets2[i]["eth_total"]
+        wallet["stables_total"] = wallets2[i]["usd_total"]
+    
+    workbook = xlsxwriter.Workbook(file_excel_table)
+    worksheet = workbook.add_worksheet("Stats")
+
+    header_format = workbook.add_format({
+        'bold': True,
+        'align': 'center',
+        'valign': 'vcenter',
+        'text_wrap': True,
+        'border': 1
+    })
